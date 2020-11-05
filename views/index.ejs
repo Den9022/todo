@@ -1,0 +1,67 @@
+<html>
+
+<head>
+	<title> ToDo App </title>
+	<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+	<link href="/styles.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+	<div class="container">
+		<h2> ToDo List </h2>
+		<form action="/addtask" method="POST">
+			<input type="text" name="newtask" placeholder="add new task">
+			<input id="hiddeninput" name="taskcategory" type="hidden">
+			<table id="category-table">
+				<tr>
+					<td class="category" data-category="good">Good</td>
+				</tr>
+				<tr>
+					<td class="category" data-category="bad">Bad</td>
+				</tr>
+				<tr>
+					<td class="category" data-category="juicy">Juicy</td>
+				</tr>
+			</table>
+			<button> Send </button>
+		</form>
+		<div id="main">
+			<div class="list-header good">Good</div>
+			<div class="list-container">
+				<ul id="good-list todo-list">
+					<% for( var i = 0; i < good_task.length; i++){ %>
+					<li> <%= good_task[i] %> </li>
+					<% } %>
+				</ul>
+			</div>
+			<div class="list-header bad">Bad</div>
+			<div class="list-container">
+				<ul id="bad-list todo-list">
+					<% for( var i = 0; i < bad_task.length; i++){ %>
+					<li> <%= bad_task[i] %> </li>
+					<% } %>
+				</ul>
+			</div>
+			<div class="list-header juicy">Juicy</div>
+			<div class="list-container">
+				<ul id="juicy-list todo-list">
+					<% for( var i = 0; i < juicy_task.length; i++){ %>
+					<li> <%= juicy_task[i] %> </li>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
+
+<script>
+	$("#category-table tbody tr td").on("click", function () {
+		$('.category').removeClass('selected');
+		$(this).addClass('selected')
+		$('#hiddeninput').val($(this).attr("data-category"));
+	});
+</script>

@@ -1,0 +1,59 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.4em;
+  color: #4d4d4d;
+  width: 550px;
+  margin: 0 auto;
+}
+
+#new-todo {
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 0.5px solid grey;
+}
+
+#category-table {
+  min-width: 200px;
+}
+
+#category-table>tbody>tr>td {
+  border: 1px solid gray;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  text-align: center;
+}
+
+.list-header {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-width: 150px;
+}
+
+.selected{
+  background: gray;
+}
+
+.list-container {
+  max-width: 150px;
+  border: 1px solid gray;
+}
+
+.good {
+  background: chartreuse;
+}
+
+.bad {
+  background: lightsalmon;
+}
+
+.juicy {
+  background: yellow;
+}
