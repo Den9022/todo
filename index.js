@@ -8,29 +8,30 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
 
-var good_task = ["buy socks", "practise with nodejs"];
+var good_task = ["elem1", "elem2", "elem3"];
 
-var bad_task = ["buy ", "practise  "];
+var bad_task = ["elem1", "elem2", "elem3"];
 
-var juicy_task = [" socks", "odejs"];
+var juicy_task = ["elem1", "elem2", "elem3"];
 
 app.post('/addtask', function (req, res) {
 
   var newTask = req.body.newtask;
   var taskCategory = req.body.taskcategory;
 
-  if(taskCategory == "good"){
-    good_task.push(newTask);
-  }
+  if (typeof newtask != undefined) {
+    if (taskCategory == "good") {
+      good_task.push(newTask);
+    }
 
-  if(taskCategory == "bad"){
-    bad_task.push(newTask);
-  }
+    if (taskCategory == "bad") {
+      bad_task.push(newTask);
+    }
 
-  if(taskCategory == "juicy"){
-    juicy_task.push(newTask);
+    if (taskCategory == "juicy") {
+      juicy_task.push(newTask);
+    }
   }
-
   res.redirect("/");
 });
 
